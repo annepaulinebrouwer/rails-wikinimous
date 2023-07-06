@@ -1,10 +1,11 @@
-<h1>Articles</h1>
 
-  <ul>
-  <% @articles.each do |article| %>
-    <li>
-      <p><%= link_to article.title, article_path(article.id) %></p>
-      <p><%= article.content %></p>
-    </li>
-  <% end %>
-</ul>
+<div class="my-5 d-flex flex-row justify-content-between align-items-center">
+  <h1>Read the latest articles</h1>
+  <%= link_to 'New article', new_article_path, class: 'btn btn-secondary'%>
+</div>
+<% @articles.each do |article| %>
+  <article>
+    <h4><%= link_to article.title, article_path(article.id), class:"link-success"%></h4>
+    <p><%= article.content[0..100] %></p>
+  </article>
+<% end %>
